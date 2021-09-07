@@ -1,0 +1,86 @@
+PROCEDURE vic_size(var n:INTEGER)
+
+BEGIN
+    Write("give the victors sizes");
+    Read(n);
+END
+
+PROCEDURE fill_v1(var v1:ARRAY_OF INTEGER , n:INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("give victor 1 elements ");
+        Read(v1[i]);
+    END_FOR
+END
+
+PROCEDURE fill_v2(var v2:ARRAY_OF INTEGER , n:INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("give victor 2 elements ");
+        Read(v2[i]);
+    END_FOR
+END
+
+PROCEDURE dot_product(var v1,v2: ARRAY_OF INTEGER ; var ps:INTEGER)
+VAR
+    i:INTEGER:,
+BEGIN
+
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        ps := ps + v1[i] * v2[i];
+    END_FOR
+
+END
+
+ALGORITHM orthogonal_proc
+VAR
+    v1,v2:ARRAY_OF INTEGER[30];;
+    i,n:INTEGER;
+BEGIN
+    vic_size(n);
+    fill_v1(v1,n);
+    fill_v2(v2,n);
+    dot_product(v1,v2,ps);
+
+    IF (ps = 0) THEN
+        Write("V1 and V2 are orthogonal");
+    ELSE
+        Write("V1 and V2 are not orthogonal");
+    END_IF
+END
+
+//function solution
+FUNCTION dot_product(var v1,v2: ARRAY_OF INTEGER ; var ps:INTEGER) : INTEGER
+VAR
+    i:INTEGER:,
+BEGIN
+
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        ps := ps + v1[i] * v2[i];
+    END_FOR
+    RETURN ps;
+    END_IF
+END
+
+ALGORITHM orthogonal_func
+VAR
+    v1,v2:ARRAY_OF INTEGER[30];;
+    i:INTEGER;
+BEGIN
+    vic_size(n);
+    fill_v1(v1,n);
+    fill_v2(v2,n);
+    ps:= dot_product(v1,v2,ps);
+
+    IF (ps = 0) THEN
+        Write("V1 and V2 are orthogonal");
+    ELSE
+        Write("V1 and V2 are not orthogonal");
+    END_IF
+END
+
+
